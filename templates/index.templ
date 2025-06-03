@@ -1,0 +1,49 @@
+package templates
+
+templ TestContent() {
+	<div>this is a test content</div>
+}
+
+templ Body(title string, date string, content templ.Component) {
+	<article>
+		<h1>{title}</h1>
+		<p id="date">
+			<em>Published on {date} by SuryaPrakash.</em>
+		</p>
+		@content
+	</article>
+}
+
+templ Header() {
+	<div id="header">
+		<h1 id="logo">suryaprakash.dev</h1>
+		<div id="link-box">
+			<h2><i class="fa fa-github" /></h2>
+			<h2><i class="fa fa-phone" aria-hidden="true"></i></h2>
+		</div>
+	</div>
+}
+
+templ Index(title string, date string, content templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>{title}</title>
+
+			<link href="static/main.css" rel="stylesheet">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="static/highlight/styles/a11y-dark.css">
+			<script src="static/highlight/highlight.min.js"></script>
+		</head>
+		<body class="bg-background font-roboto text-white flex flex-col items-center">
+			@Header()
+			@Body(title, date, content)
+			<script>hljs.highlightAll();</script>
+		</body>
+	</html>
+}

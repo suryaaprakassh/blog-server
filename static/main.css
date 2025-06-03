@@ -1,0 +1,154 @@
+:root {
+	--color-bg: rgb(17, 16, 22);
+	--color-primary: #254D70;
+	--color-secondary: #131D4F;
+	--color-highlight: #954C2E;
+	--font-roboto: "Roboto Mono";
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: var(--color-bg);
+	color: white;
+	font-family: var(--font-roboto), sans-serif;
+	line-height: 1.6;
+	padding: 10px 20px;
+}
+
+article {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 1.5rem;
+}
+
+h1, h2, h3 {
+	padding: 8px 0;
+	margin-bottom: 0.5rem;
+}
+
+h1 {
+	font-size: 1.4em;
+}
+
+h2 {
+	font-size: 1.3em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+p {
+	font-size: 1.1em;
+	color: #9ca3af;
+}
+
+code {
+	background-color: rgba(255, 255, 255, 0.08);
+	color: #fcd34d; 
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-family: "Roboto Mono", monospace;
+	font-size: 0.95em;
+}
+
+pre {
+	background-color: #1e1e2e;
+	color: #f1f5f9;
+	padding: 1rem;
+	border-radius: 8px;
+	overflow-x: auto;
+	font-family: "Roboto Mono", monospace;
+	font-size: 0.95em;
+	margin: 1.5rem 0;
+	line-height: 1.6;
+}
+
+pre code {
+	background: none;
+	padding: 0;
+	color: inherit;
+	font-size: inherit;
+}
+
+ul,ol {
+	list-style-position: inside;
+}
+
+#logo {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#date {
+	font-size: 1em;
+	color: #9ca3af;
+	margin-bottom: 1.2rem;
+}
+
+blockquote {
+	border-left: 4px solid var(--color-highlight);
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 12px 20px;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: #d1d5db;
+}
+
+blockquote::before {
+	content: open-quote;
+	font-size: 2em;
+	line-height: 0;
+	vertical-align: -0.4em;
+	color: var(--color-highlight);
+	margin-right: 6px;
+}
+
+blockquote::after {
+	content: close-quote;
+	font-size: 2em;
+	line-height: 0;
+	vertical-align: -0.4em;
+	color: var(--color-highlight);
+	margin-left: 6px;
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color 0.2s ease, border-bottom 0.2s ease;
+	border-bottom: 1px dashed var(--color-primary);
+}
+
+a:hover {
+	color: var(--color-highlight);
+	border-bottom: 1px solid var(--color-highlight);
+}
+
+a:visited {
+	color: #6b7280; 
+}
+
+#header {
+	display: flex;
+	flex-direction:row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#link-box {
+	display: flex;
+	flex-direction:row;
+	align-items:flex-start;
+	gap: 1em;
+}
