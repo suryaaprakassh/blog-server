@@ -8,7 +8,7 @@ import (
 templ PostItem(title string,date string, tags []string,slug string) {
 			<li class="postItem">
 				<a href={templ.SafeURL(path.Join("/",slug))}>
-					<h2>{slug}</h2>
+					<h2>{title}</h2>
 					<div> <p> | Published on {date} </p>
 					</div>
 					<div class="tagBox">
