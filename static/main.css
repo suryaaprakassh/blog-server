@@ -123,19 +123,19 @@ blockquote::after {
 	margin-left: 6px;
 }
 
-a {
+#article a {
 	color: var(--color-primary);
 	text-decoration: none;
 	transition: color 0.2s ease, border-bottom 0.2s ease;
 	border-bottom: 1px dashed var(--color-primary);
 }
 
-a:hover {
+#article a:hover {
 	color: var(--color-highlight);
 	border-bottom: 1px solid var(--color-highlight);
 }
 
-a:visited {
+#article a:visited {
 	color: #6b7280; 
 }
 
@@ -146,9 +146,68 @@ a:visited {
 	width: 100%;
 }
 
+#header a {
+	color:white;
+	text-decoration:none;
+}
+
 #link-box {
 	display: flex;
 	flex-direction:row;
 	align-items:flex-start;
 	gap: 1em;
+}
+
+#posts {
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	padding: 30px;
+	width:50%;
+}
+
+.tagBox {
+	display: flex;
+	align-items:center;
+	gap: 1em;
+}
+
+#posts span {
+	font-size:0.9em;	
+	color: #9ca3af;
+	border-radius: 5px;
+	border: 1px solid #9ca3af;
+	padding: 1px 4px;
+}
+
+.postItem {
+	margin: 1em 0em;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+	width: 100%;
+}
+
+.postItem:hover {
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+.postItem h2{
+	margin: 0;
+}
+
+.postItem p {
+	margin: 1em 0;
+	font-size: 0.9em;
+}
+
+.postItem a{
+	color: white;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 425px) {
+	article {
+		width: 100%;
+	}
 }

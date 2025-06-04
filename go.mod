@@ -1,10 +1,12 @@
 module github.com/suryaaprakassh/blog_server
 
-go 1.23.2
+go 1.24.3
 
 require (
 	github.com/a-h/templ v0.3.887
 	github.com/labstack/echo/v4 v4.13.4
+	github.com/templ-go/x v0.0.0-20240924085055-a31c35cebd07
+	github.com/yuin/goldmark v1.7.12
 )
 
 require (

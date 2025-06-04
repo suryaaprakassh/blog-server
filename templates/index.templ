@@ -4,19 +4,21 @@ templ TestContent() {
 	<div>this is a test content</div>
 }
 
-templ Body(title string, date string, content templ.Component) {
-	<article>
+templ Body(title string, date string, content string) {
+	<article id="article">
 		<h1>{title}</h1>
 		<p id="date">
 			<em>Published on {date} by SuryaPrakash.</em>
 		</p>
-		@content
+		@templ.Raw(content)
 	</article>
 }
 
 templ Header() {
 	<div id="header">
-		<h1 id="logo">suryaprakash.dev</h1>
+		<h1 id="logo">
+			<a href="/">suryaprakash.dev</a>
+		</h1>
 		<div id="link-box">
 			<h2><i class="fa fa-github" /></h2>
 			<h2><i class="fa fa-phone" aria-hidden="true"></i></h2>
@@ -24,7 +26,7 @@ templ Header() {
 	</div>
 }
 
-templ Index(title string, date string, content templ.Component) {
+templ Index(title string, date string, content string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>

@@ -1,0 +1,26 @@
+package templates
+
+templ Notfound() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Not Found !</title>
+
+			<link href="static/main.css" rel="stylesheet">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="static/highlight/styles/a11y-dark.css">
+			<script src="static/highlight/highlight.min.js"></script>
+		</head>
+		<body class="bg-background font-roboto text-white flex flex-col items-center">
+			@Header()
+			<h2>POOLSIDE ERROR 0X0000404</h2> 
+			<h2>FILE_NOT_FOUND</h2> 
+			<p>Initiating lost page protocol...</p>
+		</body>
+	</html>
+}

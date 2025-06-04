@@ -1,0 +1,47 @@
+package templates
+
+import (
+"github.com/suryaaprakassh/blog_server/posts"
+	"path"
+)
+
+templ PostItem(title string,date string, tags []string,slug string) {
+			<li class="postItem">
+				<a href={templ.SafeURL(path.Join("/",slug))}>
+					<h2>{slug}</h2>
+					<div> <p> | Published on {date} </p>
+					</div>
+					<div class="tagBox">
+					for _,t := range tags {
+						<span>#{t}</span>
+					}
+					</div>
+				</a>
+			</li>
+}
+
+templ Home(posts []*posts.Post) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>suryaprakash.dev</title>
+			<link href="static/main.css" rel="stylesheet"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+			<link rel="stylesheet" href="static/highlight/styles/a11y-dark.css"/>
+			<script src="static/highlight/highlight.min.js"></script>
+		</head>
+		<body class="bg-background font-roboto text-white flex flex-col items-center">
+			@Header()
+			<ul id="posts">
+				for _,p := range posts {
+					@PostItem(p.Title,p.Date,p.Tags,p.Slug)
+				}
+			</ul>
+		</body>
+	</html>
+}
