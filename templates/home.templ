@@ -35,7 +35,7 @@ templ Home(posts []*posts.Post) {
 			<link rel="stylesheet" href="static/highlight/styles/a11y-dark.css"/>
 			<script src="static/highlight/highlight.min.js"></script>
 		</head>
-		<body class="bg-background font-roboto text-white flex flex-col items-center">
+		<body >
 			@Header()
 			<ul id="posts">
 				for _,p := range posts {

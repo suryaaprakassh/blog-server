@@ -169,6 +169,7 @@ blockquote::after {
 .tagBox {
 	display: flex;
 	align-items:center;
+	flex-wrap: wrap;
 	gap: 1em;
 }
 
@@ -206,8 +207,33 @@ blockquote::after {
 	text-decoration: none;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
 	article {
 		width: 100%;
 	}
+	body {
+		padding: 4px 8px;
+	}
+
+	#logo {
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+
+	#posts span {
+		font-size:0.8em;	
+		padding: 1px 3px;
+	}
+	#date {
+		font-size: 0.8em;
+		margin-bottom: 0.8rem;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#posts{
+		width: 100%;
+		padding:1px 2px;
+	}
+
 }
