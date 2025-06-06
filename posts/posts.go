@@ -66,7 +66,7 @@ func (p *Post) GetMetaTags(content string) {
 	if err := goldmark.Convert(contentBuf.Bytes(), &buf); err != nil {
 		panic(err)
 	}
-	p.Content = string(buf.Bytes())
+	p.Content = buf.String()
 }
 
 

@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title></title><link href="static/main.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="static/highlight/styles/a11y-dark.css"><script src="static/highlight/highlight.min.js"></script></head><body class="bg-background font-roboto text-white flex flex-col items-center"><div id="header"><h1 id="logo"><a href="/">suryaprakash.dev</a></h1><div id="link-box"><h2><i class="fa fa-github"></i></h2><h2><i class="fa fa-phone" aria-hidden="true"></i></h2></div></div><article id="article"><h1></h1><p id="date"><em>Published on  by SuryaPrakash.</em></p><p>So, you’ve decided to finally learn Git . Either because you want to stop blindly copy-pasting commands from Stack Overflow, or because you’ve just been publicly shamed by <code>git status</code>. Don’t worry, we’ve all been there.</p>
+<p>Git might seem like some black magic tool that exists just to ruin your day with merge conflicts. But it’s actually… well, yeah, okay — it <em>can</em> still ruin your day. But once you get the basics right, it becomes a lot less scary (and a lot more useful but you will still have merge conflicts).</p>
+<p>Let’s break it down, nice and easy — no <em>jargon</em> and minimal emotional damage.</p>
+<h1>🤔 What is git?</h1>
+<p>Git is a “simple and easy-to-use” <em>version control system</em> — and by “simple,” I of course mean “it will occasionally give you impostor syndrome.” But seriously, Git helps you track changes across your codebase, revert them when things inevitably go south, and generally
+helps you maintain larger codebases with ease.</p>
+<p>Sure, you <em>could</em> argue that Git is for the weak — that real developers don’t need version control because they never make mistakes. But when you're knee-deep in a massive project or juggling contributions from a dozen teammates who all swear their code works “on their machine,” Git suddenly starts looking like the unsung hero you never knew you needed.</p>
+<h1>❓ How to use git?</h1>
+<p>Alright, let’s keep things simple. We’ll assume you already know how to use the command line and navigate to your project folder using the terminal. If that sounds like you, great — you're all set.</p>
+<p>Now, let’s walk through the steps below.</p>
+<blockquote>
+<p>Please install <code>git</code> before continuing this article 😅</p>
+</blockquote>
+<h2>Initializing a git repository</h2>
+<p>Lets first create a new empty directory <code>Hello-World</code> where we will create a mock project to learn git. Lets create the directory and use that directory by using the following command.</p>
+<pre><code class="language-sh">mkdir Hello-World &amp;&amp; cd Hello-World
+</code></pre>
+<p>To first start working with git we need to <em>initialize</em> a new git repository. <em>Repository</em> refers to directory created by <em>git</em> that will track all the versions of your code.Run the command into command in the <code>Hello-World</code> directory.</p>
+<pre><code class="language-sh">git init
+</code></pre>
+<p>Now whatever the changes that are made in the <code>Hello-World</code> directory git will track them (technically).</p>
+<h2>Lets create our first file</h2>
+<p>We can create a file inside the <code>Hello-World</code> directory using the following command.</p>
+<pre><code class="language-sh">echo &quot;line 1&quot; &gt;&gt; README.md
+</code></pre>
+<p>Now git should start tracking the <code>README.md</code> right? well technically no. Ok new command time first lets see the status of our repository with the following command.</p>
+</article><script>hljs.highlightAll();</script></body></html>

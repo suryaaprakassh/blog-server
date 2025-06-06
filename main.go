@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"io/fs"
 	"net/http"
 	"os"
@@ -80,7 +79,6 @@ func main() {
 		if _, ok := blogs[slug]; !ok {
 			return Render(c, templates.Notfound(), http.StatusNotFound)
 		}
-		fmt.Println("static/" + slug + ".html")
 		return c.File("static/" + slug + ".html")
 	})
 

@@ -1,0 +1,158 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Learn Git Part 1</title><link href="static/main.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="static/highlight/styles/a11y-dark.css"><script src="static/highlight/highlight.min.js"></script></head><body class="bg-background font-roboto text-white flex flex-col items-center"><div id="header"><h1 id="logo"><a href="/">suryaprakash.dev</a></h1><div id="link-box"><h2><a href="https://github.com/suryaaprakassh"><i class="fa fa-github"></i></a></h2><h2><a href="mailto:suryaaprakass@gmail.com"><i class="fa fa-phone" aria-hidden="true"></i></a></h2></div></div><article id="article"><h1>Learn Git Part 1</h1><p id="date"><em>Published on Jun 06 , 2025 by SuryaPrakash.</em></p><h1>Introduction</h1>
+<p>So, you’ve decided to finally learn <em>Git</em> . Either because you want to stop blindly copy-pasting commands from Stack Overflow, or because you’ve just been publicly shamed by <code>git status</code>. Don’t worry, we’ve all been there.</p>
+<p>Git might seem like some black magic tool that exists just to ruin your day with merge conflicts. But it’s actually… well, yeah, okay — it <em>can</em> still ruin your day. But once you get the basics right, it becomes a lot less scary (and a lot more useful but you will still have merge conflicts).</p>
+<p>Let’s break it down, nice and easy — no <em>jargon</em> and minimal emotional damage.</p>
+<h1>What is git?</h1>
+<p>Git is a “simple and easy-to-use” <em>version control system</em> — and by “simple,” I of course mean “it will occasionally give you impostor syndrome.” But seriously, Git helps you track changes across your codebase, revert them when things inevitably go south, and generally
+helps you maintain larger codebases with ease.</p>
+<p>Sure, you <em>could</em> argue that Git is for the weak — that real developers don’t need <em>version control</em> because they never make mistakes. But when you're knee-deep in a massive project or juggling contributions from a dozen teammates who all swear their code works “on their machine,” Git suddenly starts looking like the unsung hero you never knew you needed.</p>
+<hr>
+<h1>How to use git?</h1>
+<p>Alright, let’s keep things simple. We’ll assume you already know how to use the command line and navigate to your project folder using the terminal. If that sounds like you, great — you're all set.</p>
+<p>Now, let’s walk through the steps below.</p>
+<blockquote>
+<p>Please install <code>git</code> before continuing this article 😅</p>
+</blockquote>
+<h2>Initializing a git repository</h2>
+<p>Lets first create a new empty directory <code>Hello-World</code> where we will create a mock project to learn git. Lets create the directory and use that directory by using the following command.</p>
+<pre><code class="language-sh">mkdir Hello-World &amp;&amp; cd Hello-World
+</code></pre>
+<p>To first start working with git we need to <em>initialize</em> a new git repository. <em>Repository</em> refers to directory created by <em>git</em> that will track all the versions of your code.Run the command into command in the <code>Hello-World</code> directory.</p>
+<pre><code class="language-sh">git init
+</code></pre>
+<p>Now whatever the changes that are made in the <code>Hello-World</code> directory git will track them (technically).</p>
+<hr>
+<h2>Lets create our first file</h2>
+<p>We can create a file inside the <code>Hello-World</code> directory with:</p>
+<pre><code class="language-sh">echo &quot;line 1&quot; &gt;&gt; README.md
+</code></pre>
+<p>Now you might think Git starts tracking <code>README.md</code> immediately — but not quite.</p>
+<p>To check the status of our repository, run:</p>
+<pre><code class="language-sh">git status
+</code></pre>
+<p>You’ll see something like this:</p>
+<pre><code class="language-sh">On branch main
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<h3>Why isn’t Git tracking the file yet?</h3>
+<p>By default, Git doesn’t track every file in the working directory. It only tracks files that have been added to the <strong>staging area</strong>.</p>
+<p>Think of the <strong>staging area</strong> as a waiting room. Files go there before Git includes them in a commit.</p>
+<p>To move a file to the staging area, use:</p>
+<pre><code class="language-sh">git add &lt;file_name&gt;
+</code></pre>
+<p>So in our case:</p>
+<pre><code class="language-sh">git add README.md
+</code></pre>
+<p>Alternatively, to stage <strong>all</strong> changes in the current directory:</p>
+<pre><code class="language-sh">git add .
+</code></pre>
+<p>Once a file is staged, Git will track it and include it in the next commit. Now lets see the status of our <em>repository</em> by using the following command.</p>
+<pre><code class="language-sh">git status
+</code></pre>
+<p>You will see something like this. Git tells us that <code>Readme.md</code> is a <em>new file</em> . But git won't save these changes yet.</p>
+<pre><code class="language-sh">On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   Readme.md
+</code></pre>
+<hr>
+<h3>Creating our first commit.</h3>
+<p>Think of a <strong>commit</strong> as a save point in your codebase — like a snapshot of your project's current state. Once you create a commit, you can always go back to it. Pretty cool, right? Break your code with a segfault? No problem — just rewind to a working state.</p>
+<p>To create a commit, use:</p>
+<pre><code class="language-sh">git commit -m &quot;my first commit&quot;
+</code></pre>
+<p>Here, the <code>-m</code> flag is for the <strong>commit message</strong> — a short description that helps you (and others) understand what this snapshot is about.</p>
+<blockquote>
+<p><strong>Important:</strong> Git only commits files in the <strong>staging area</strong>. So always use <code>git add</code> to stage your changes before committing!</p>
+</blockquote>
+<p>To check if your commit was successful, run:</p>
+<pre><code class="language-sh">git status
+</code></pre>
+<p>You should see something like:</p>
+<pre><code class="language-sh">On branch main
+nothing to commit, working tree clean
+</code></pre>
+<p>This means everything is up to date — no pending changes. You're good to go!</p>
+<h3>Checking our logs</h3>
+<p>You can view your commits using the <code>git log</code> command. This shows a history of all commits in your repository.</p>
+<pre><code class="language-sh">git log
+</code></pre>
+<p>If you’ve been following along, you’ll see something like this:</p>
+<pre><code class="language-sh">commit 9971e6ab1c3c85b53b165b9e62a46408c075361f (HEAD -&gt; main)
+Author: Surya Prakash &lt;example@example.com&gt;
+Date:   Fri Jun 6 09:15:25 2025 +0530
+
+    my first commit
+(END)
+</code></pre>
+<h3>Breaking it down:</h3>
+<ul>
+<li><strong>commit</strong>: This long string is the unique <strong>hash ID</strong> of your commit — like a fingerprint. You can use this to refer to this exact version of your code.</li>
+<li><strong>Author</strong>: Who made the commit.</li>
+<li><strong>Date</strong>: When the commit was made.</li>
+<li><strong>Message</strong>: The description you gave using the <code>-m</code> flag.</li>
+<li><strong>main</strong>: This tells you the commit is on the <code>main</code> <strong>branch</strong> (we’ll talk about branches later).</li>
+</ul>
+<hr>
+<p>It might feel like a lot at first — so here’s a quick summary:
+<img src="static/images/20250606092538.png" alt="some image"></p>
+<p>Ok about the summary part, make changes to your <em>project</em> , add those changes to the <em>staging area</em> by using <code>git add</code>, create a <em>commit</em> using <code>git commit</code>.</p>
+<hr>
+<h1>Pushing our code to remote</h1>
+<p>After creating a commit, the next step is to <strong>push</strong> your code to a <strong>remote repository</strong>.</p>
+<h3>What is a Remote Repository?</h3>
+<p>A remote repository is just a Git repository hosted on a server — like GitHub, GitLab, or Bitbucket. It allows you to store your code online and collaborate with others.</p>
+<h3>Why push code to a remote server?</h3>
+<p>There are several advantages:</p>
+<ul>
+<li><strong>Team collaboration</strong>: Your teammates can work on the same project. They make changes, commit, and <strong>push</strong> their code. You can then <strong>pull</strong> those changes into your local project.</li>
+<li><strong>Backup</strong>: Even if your laptop burns (please don’t test this!), your code is still safe in the remote repo.</li>
+</ul>
+<h3>Popular Git Hosting Platforms:</h3>
+<ul>
+<li><a href="https://github.com/">GitHub</a></li>
+<li><a href="https://gitlab.com/">GitLab</a></li>
+<li><a href="https://bitbucket.org/">Bitbucket</a></li>
+</ul>
+<hr>
+<h3>Getting the Remote URL (GitHub Example)</h3>
+<p>For this guide, I will use <strong>GitHub</strong>.</p>
+<ol>
+<li>Create an account on GitHub.</li>
+<li>Create a new repository (you can skip adding README/License for now).</li>
+<li>Once the repo is created, you’ll see a screen like this:</li>
+</ol>
+<p><img src="static/images/20250606094010.png" alt="some image"></p>
+<p>From here, <strong>copy the HTTPS URL</strong> of the repository — it looks like this:</p>
+<pre><code>https://github.com/your-username/your-repo-name.git
+</code></pre>
+<p>We’ll use this URL to link your local repo to the remote one. Let’s do that next!</p>
+<h3>Linking your repo to a remote url</h3>
+<p>Lets use the following command to link our <em>repository</em> with a remote url.</p>
+<pre><code class="language-sh">git remote add origin https://github.com/your-username/your-repo-name.git
+</code></pre>
+<blockquote>
+<p>Don't forget to change the remote url before executing this command</p>
+</blockquote>
+<p>In the above command <code>origin</code> refers to the name of the remote. You can name it however you like. But <code>origin</code> is the convention.</p>
+<hr>
+<h3>Pushing our code to the remote</h3>
+<p>At last!! final steps .To push our code to the remote we use the following command.</p>
+<pre><code class="language-sh">git push origin main
+</code></pre>
+<p>Here <code>origin</code> refers to the name of the remote url that we created in the previous step. And <code>main</code> refers to the branch which we want to push. This will push our commit to the remote repository.</p>
+<blockquote>
+<p>TLDR; only the commit which we created will be pushed and if the changes are not committed it will not be reflected in the remote repository.</p>
+</blockquote>
+<h3>Wrapping up!</h3>
+<p>Ok we successfully created our <em>git repository</em> and pushed it to a remote sever. I dont wanna drag more, look for the <em>upcoming parts</em> where we will create branches and work with merge conflicts thats a whole another story. If there are any mistakes in this article or you have some suggestion feel free to drop a <em>mail</em>.</p>
+<hr>
+</article><script>hljs.highlightAll();</script></body></html>

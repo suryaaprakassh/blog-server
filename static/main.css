@@ -31,6 +31,12 @@ article {
 	gap: 1.5rem;
 }
 
+article img {
+	width: 100%;
+	border-radius: 25px;
+	padding: 5px;
+}
+
 h1, h2, h3 {
 	padding: 8px 0;
 	margin-bottom: 0.5rem;
@@ -49,7 +55,7 @@ h3 {
 }
 
 p {
-	font-size: 1.1em;
+	font-size: 1em;
 	color: #9ca3af;
 }
 
@@ -83,6 +89,11 @@ pre code {
 
 ul,ol {
 	list-style-position: inside;
+	color: #9ca3af;
+}
+
+strong , em , li::marker{
+	color: white;
 }
 
 #logo {
@@ -230,6 +241,9 @@ blockquote::after {
 		font-size: 0.8em;
 		margin-bottom: 0.8rem;
 	}
+	p ,ul,ol,pre{
+		font-size: 0.85em;
+	}	
 }
 
 @media screen and (max-width: 720px) {
@@ -238,3 +252,4 @@ blockquote::after {
 		padding:1px 2px;
 	}
 }
+
