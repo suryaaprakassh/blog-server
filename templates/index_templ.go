@@ -121,7 +121,7 @@ func Header() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div id=\"header\"><h1 id=\"logo\"><a href=\"/\">suryaprakash.dev</a></h1><div id=\"link-box\"><h2><a href=\"https://github.com/suryaaprakassh\"><i class=\"fa fa-github\"></i></a></h2><h2><a href=\"mailto:suryaaprakass@gmail.com\"><i class=\"fa fa-phone\" aria-hidden=\"true\"></i></a></h2></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div id=\"header\"><h1 id=\"logo\"><a href=\"/\">suryaprakash.dev</a></h1><div id=\"link-box\"><h2><a href=\"https://github.com/suryaaprakassh\"><i class=\"fa fa-github\"></i></a></h2><h2><a href=\"mailto:suryaaprakass@gmail.com\"><i class=\"fa fa-envelope\" aria-hidden=\"true\"></i></a></h2></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
