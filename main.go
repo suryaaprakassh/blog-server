@@ -3,9 +3,11 @@ package main
 import (
 	"context"
 	"io/fs"
+	"log/slog"
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/labstack/echo/v4"
 	"github.com/suryaaprakassh/blog_server/posts"
@@ -68,9 +70,27 @@ func init() {
 	generateHome(postsContainer)
 }
 
+func keepAlive(t *time.Ticker) {
+	for {
+		select {
+			case <-t.C: 
+			res,err := http.Get("http://localhost:8000/health")
+			if err != nil {
+					slog.Error(err.Error())
+			}
+			slog.Info("[PING]", "code",res.StatusCode)
+		}
+	}
+}
+
 func main() {
 	e := echo.New()
+	t := time.NewTicker(time.Minute * 10);
+	go keepAlive(t);
 	e.Static("/static", "./static")
+	e.GET("/health", func(c echo.Context) error {
+		return c.String(http.StatusOK,"ok")
+	})
 	e.GET("/",func(c echo.Context) error {
 		return c.File("static/home.html")
 	})

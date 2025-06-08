@@ -4,3 +4,5 @@ run: build
 	 ./bin/main
 dev:
 	 air
+
+

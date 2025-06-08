@@ -8,6 +8,7 @@ import (
 	"github.com/yuin/goldmark"
 )
 
+
 type Post struct {
 	Slug    string
 	Title   string

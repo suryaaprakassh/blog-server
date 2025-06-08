@@ -1,4 +1,4 @@
--- title: Learn Git Part 1
+-- title: Learn Git Part 1 
 -- date: Jun 06 , 2025
 -- tags: git,vcs
 -- slug: learn-git-1
