@@ -1,20 +1,21 @@
-package posts 
+package posts
 
 import (
 	"bytes"
 	"io"
 	"os"
 	"strings"
+
 	"github.com/yuin/goldmark"
 )
 
-
 type Post struct {
-	Slug    string
-	Title   string
-	Content string
-	Tags    []string
-	Date    string
+	Slug       string
+	Title      string
+	Content    string
+	Tags       []string
+	Date       string
+	Descrition string
 }
 
 func (p *Post) parseConfig(line string) (string, string) {
@@ -48,6 +49,8 @@ func (p *Post) GetMetaTags(content string) {
 				p.Date = value
 			case "slug":
 				p.Slug = value
+			case "desc":
+				p.Descrition = value
 			case "tags":
 				p.Tags = p.creatTags(value)
 			default:
@@ -69,7 +72,6 @@ func (p *Post) GetMetaTags(content string) {
 	}
 	p.Content = buf.String()
 }
-
 
 func NewPost(file *os.File) *Post {
 	f := &Post{}

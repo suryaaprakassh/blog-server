@@ -26,12 +26,17 @@ templ Header() {
 	</div>
 }
 
-templ Index(title string, date string, content string) {
+templ Index(title string, date string, content string,desc string,keywords string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta charset="utf-8">
+		  <meta name="author" content="SuryaPrakash">
+			<meta name="description" content={desc}>
+			<meta name="keywords" content={keywords}>
+
 			<title>{title}</title>
 
 			<link href="static/main.css" rel="stylesheet">
