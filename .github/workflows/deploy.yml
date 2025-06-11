@@ -11,5 +11,5 @@ jobs:
           username: suryaprakash
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: cd blog-server && ./blog-server/deploy.sh
+          script: cd blog-server && ./deploy.sh
 
