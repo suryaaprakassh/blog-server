@@ -1,0 +1,15 @@
+name: Deploy
+on: [push]
+jobs:
+  Build-And-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to remote
+        uses: appleboy/ssh-action@v1
+        with: 
+          host: ${{ secrets.HOST }}
+          username: suryaprakash
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: cd blog-server && ./blog-server/deploy.sh
+
